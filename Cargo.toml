@@ -1,0 +1,17 @@
+[package]
+name = "mio-schannel-notconnected"
+version = "0.1.0"
+authors = ["Marc-Antoine Perennou <Marc-Antoine@Perennou.com>"]
+edition = "2018"
+
+[dependencies]
+native-tls = "0.2"
+
+[dependencies.mio]
+version  = "0.7"
+default-features = false
+features = ["os-poll", "tcp"]
+
+[target.'cfg(target_os = "windows")'.dependencies]
+# Pin to failing version
+schannel = "=0.1.19"
